@@ -3,19 +3,6 @@
 > **⚠️ IMPORTANT LEGAL STATUS (as of 29 December 2025):**  
 > The "NEW" operational definition (SC Order dated 20-Nov-2025) has been **kept in abeyance** by a subsequent Supreme Court order dated **29-Dec-2025**. A high-powered committee has been constituted for reassessment. The FSI-2010 constraints continue to apply for mining activities. Treat the 2025 definition as **paused pending finality**.
 
----
-
-## 📢 Share This Project
-
-> I built a small open-source repo to visualise the on-ground map impact of the Supreme Court's 2025 Aravalli delineation approach versus the earlier FSI-2010-style baseline.
->
-> I wanted to see the "before vs after" on a map—surprisingly, most coverage stayed textual—so I used my (overpriced) laptop, some geospatial tooling, and DEM-based terrain analysis to generate comparable overlays.
->
-> Using Copernicus/SRTM elevation data, I derived slope/relief features and applied the distance logic (including the ~500 m proximity/buffer rule) to approximate the newer definition. One striking observation: relative to the FSI-2010 baseline, the protected/covered area drops by roughly 91–92% in my runs.
->
-> **Repo (code + methodology + outputs):** [github.com/Somnathab3/Aravali_Mountains_Landloss](https://github.com/Somnathab3/Aravali_Mountains_Landloss)
-
----
 
 ## Table of Contents
 
@@ -59,14 +46,14 @@ The two definitions yield significantly different geographic extents. This tool 
 
 The Aravalli Mountain Range is **one of the world's oldest fold mountain systems** (formed ~3.5 billion years ago) and serves as a critical ecological barrier against desertification in northwestern India. Its legal definition directly determines:
 
-- **Environmental protection extent**: Over 89,000 km² of potential conservation zones across 34 districts
+- **Environmental protection extent**: Over 114,000 km² of potential conservation zones across 42 districts
 - **Mining permissions**: Where mineral extraction can legally occur
 - **Land use planning**: Development restrictions in ecologically sensitive zones
 - **Climate mitigation**: Forest cover maintenance and groundwater recharge areas
 
 This repository provides **reproducible, open-source geospatial analysis** to:
 
-1. **Quantify land loss** from definition changes: The shift from the FSI-2010-like methodology (OLD) to the SC 20-Nov-2025 definition (NEW) results in **~91.9% reduction** in protected area—from 89,065 km² to 7,192 km²
+1. **Quantify land loss** from definition changes: The shift from the FSI-2010-like methodology (OLD) to the SC 20-Nov-2025 definition (NEW) results in **~92.5% reduction** in protected area—from 114,096 km² to 8,613 km²
 2. **Enable scientific transparency**: All methodology, code, and data sources are public and verifiable
 3. **Support evidence-based policy**: Provide GIS layers and statistical summaries for environmental agencies, legal teams, and advocacy organizations
 4. **Document uncertainty**: Clearly state data limitations, approximations, and when litigation-grade surveys are needed
@@ -121,17 +108,17 @@ The pipeline now uses **Raster-based Morphological Operations** (scipy.ndimage) 
 
 ### 2.4 Aravalli Districts
 
-The Aravalli Range spans approximately **38 districts** across four states and Delhi NCT. The complete list is maintained in `data/districts.yml`.
+The Aravalli Range spans **42 districts** across four states and Delhi NCT. The complete list is maintained in `data/districts.yml`.
 
 #### Summary by State
 
 | State | Districts | Key Areas |
 |-------|-----------|-----------|
 | **Haryana** | 7 | Nuh, Faridabad, Gurugram, Rewari, Mahendragarh, Charkhi Dadri, Bhiwani |
-| **Rajasthan** | 18 | Alwar, Jaipur, Ajmer, Sikar, Jhunjhunu, Udaipur, Rajsamand, Bhilwara, Sirohi (Mt. Abu), Pali, Dungarpur, Banswara, Pratapgarh, Chittorgarh, Dausa, Tonk, Sawai Madhopur, Nagaur |
+| **Rajasthan** | 26 | Alwar, Jaipur, Ajmer, Sikar, Jhunjhunu, Udaipur, Rajsamand, Bhilwara, Sirohi (Mt. Abu), Pali, Dungarpur, Banswara, Pratapgarh, Chittorgarh, Dausa, Tonk, Sawai Madhopur, Nagaur, Jalore, Jodhpur, Karauli, Bundi, Kota, Bharatpur, Salumber, Beawar |
 | **Gujarat** | 5 | Aravalli, Sabarkantha, Banaskantha, Mahesana, Panchmahal |
 | **Delhi NCT** | 4 | South Delhi, South West Delhi, Central Delhi, New Delhi |
-| **Total** | **34 confirmed** | Additional 4 districts pending verification |
+| **Total** | **42** | All districts confirmed |
 
 #### Sources
 
