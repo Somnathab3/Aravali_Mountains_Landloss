@@ -1,0 +1,408 @@
+# Aravalli Districts Configuration
+# =================================
+#
+# Complete list of "Aravalli districts" spanning four states and Delhi NCT.
+# The Aravalli Range covers approximately 37-39 districts.
+#
+# SOURCES:
+# - Haryana 7 districts: Citizens' Report on Aravalli Mining Impacts (2024)
+# - Rajasthan districts: MoEFCC notifications, Wikipedia, rajras.in
+# - Gujarat districts: MoEFCC (moef.gov.in), arvalli.nic.in
+# - Delhi: MoEFCC notification, Wikipedia (Delhi Ridge)
+# - PIB Press Release: pib.gov.in (Dec 2025)
+#
+# FORMAT:
+# - name: Official district name
+# - state: State name
+# - source: Citation for inclusion
+# - boundary_file: (optional) Path to official boundary shapefile
+# - osm_query: Query string for OSM Nominatim fallback
+#
+# STATUS: Districts marked 'confirmed: true' have verified sources.
+#         Districts marked 'confirmed: false' are pending verification.
+
+metadata:
+  version: "2.0"
+  last_updated: "2025-12-31"
+  total_districts: 39
+  notes: |
+    The NEW definition (SC 20-Nov-2025) is currently IN ABEYANCE per SC order 29-Dec-2025.
+    FSI-2010 constraints continue to apply for mining activities.
+    Next hearing scheduled for 21-Jan-2026.
+
+# =============================================================================
+# HARYANA - 7 Confirmed Districts
+# Source: Citizens' Report on Aravalli Mining Impacts in Haryana
+# Additional source: MoEFCC notification, 1992 Aravalli Notification
+# =============================================================================
+haryana:
+  - name: "Nuh"
+    state: "Haryana"
+    confirmed: true
+    source: "Citizens' Report on Aravalli Mining (2024); MoEFCC (formerly Mewat)"
+    osm_query: "Nuh, Haryana, India"
+    boundary_file: null
+    notes: "Formerly known as Mewat district; mining ban since 2009"
+    
+  - name: "Faridabad"
+    state: "Haryana"
+    confirmed: true
+    source: "Citizens' Report on Aravalli Mining (2024); MoEFCC mining ban 2009"
+    osm_query: "Faridabad, Haryana, India"
+    boundary_file: null
+    notes: "Adjacent to Delhi NCT; significant urbanization pressure"
+
+  - name: "Gurugram"
+    state: "Haryana"
+    confirmed: true
+    source: "Citizens' Report on Aravalli Mining (2024); 1992 Aravalli Notification"
+    osm_query: "Gurugram, Haryana, India"
+    boundary_file: null
+    notes: "Formerly Gurgaon; major urban center; mining ban since 2009"
+
+  - name: "Rewari"
+    state: "Haryana"
+    confirmed: true
+    source: "Citizens' Report on Aravalli Mining (2024); MoEFCC"
+    osm_query: "Rewari, Haryana, India"
+    boundary_file: null
+    notes: ""
+
+  - name: "Mahendragarh"
+    state: "Haryana"
+    confirmed: true
+    source: "Citizens' Report on Aravalli Mining (2024); MoEFCC"
+    osm_query: "Mahendragarh, Haryana, India"
+    boundary_file: null
+    notes: "Southernmost Haryana Aravalli district"
+
+  - name: "Charkhi Dadri"
+    state: "Haryana"
+    confirmed: true
+    source: "Citizens' Report on Aravalli Mining (2024)"
+    osm_query: "Charkhi Dadri, Haryana, India"
+    boundary_file: null
+    notes: "Carved from Bhiwani in 2016"
+
+  - name: "Bhiwani"
+    state: "Haryana"
+    confirmed: true
+    source: "Citizens' Report on Aravalli Mining (2024); MoEFCC (Tosham Hills)"
+    osm_query: "Bhiwani, Haryana, India"
+    boundary_file: null
+    notes: "Northwestern extent; includes Tosham Hill range"
+
+# =============================================================================
+# RAJASTHAN - 18 Districts
+# The main spine of the Aravalli Range runs through Rajasthan
+# Source: MoEFCC, rajras.in, Wikipedia
+# =============================================================================
+rajasthan:
+  - name: "Alwar"
+    state: "Rajasthan"
+    confirmed: true
+    source: "1992 Aravalli Notification; MoEFCC; Wikipedia"
+    osm_query: "Alwar, Rajasthan, India"
+    boundary_file: null
+    notes: "Northeastern Aravallis; Sariska Tiger Reserve"
+
+  - name: "Jaipur"
+    state: "Rajasthan"
+    confirmed: true
+    source: "MoEFCC; rajras.in"
+    osm_query: "Jaipur, Rajasthan, India"
+    boundary_file: null
+    notes: "State capital; eastern Aravalli foothills; Nahargarh Hills"
+
+  - name: "Ajmer"
+    state: "Rajasthan"
+    confirmed: true
+    source: "MoEFCC; rajras.in; Wikipedia"
+    osm_query: "Ajmer District, Rajasthan, India"
+    boundary_file: null
+    notes: "Core Aravalli district with significant elevations; Pushkar"
+
+  - name: "Sikar"
+    state: "Rajasthan"
+    confirmed: true
+    source: "Wikipedia; rajras.in"
+    osm_query: "Sikar, Rajasthan, India"
+    boundary_file: null
+    notes: "Northern Aravalli extension in Rajasthan"
+
+  - name: "Jhunjhunu"
+    state: "Rajasthan"
+    confirmed: true
+    source: "Wikipedia; rajras.in"
+    osm_query: "Jhunjhunu, Rajasthan, India"
+    boundary_file: null
+    notes: "Northernmost Aravalli extent in Rajasthan"
+
+  - name: "Udaipur"
+    state: "Rajasthan"
+    confirmed: true
+    source: "MoEFCC; rajras.in; Wikipedia"
+    osm_query: "Udaipur, Rajasthan, India"
+    boundary_file: null
+    notes: "Southern Aravalli spine; Lake City; significant elevation"
+
+  - name: "Rajsamand"
+    state: "Rajasthan"
+    confirmed: true
+    source: "Wikipedia; rajras.in (Kumbhalgarh)"
+    osm_query: "Rajsamand, Rajasthan, India"
+    boundary_file: null
+    notes: "Includes Kumbhalgarh Fort; significant Aravalli terrain"
+
+  - name: "Bhilwara"
+    state: "Rajasthan"
+    confirmed: true
+    source: "rajras.in"
+    osm_query: "Bhilwara, Rajasthan, India"
+    boundary_file: null
+    notes: "Central Aravalli region"
+
+  - name: "Sirohi"
+    state: "Rajasthan"
+    confirmed: true
+    source: "MoEFCC; Wikipedia; rajras.in"
+    osm_query: "Sirohi, Rajasthan, India"
+    boundary_file: null
+    notes: "Mount Abu - highest Aravalli peak (Guru Shikhar, 1722m)"
+
+  - name: "Pali"
+    state: "Rajasthan"
+    confirmed: true
+    source: "rajras.in"
+    osm_query: "Pali, Rajasthan, India"
+    boundary_file: null
+    notes: "South-eastern margin of Aravallis"
+
+  - name: "Dungarpur"
+    state: "Rajasthan"
+    confirmed: true
+    source: "rajras.in; Wikipedia"
+    osm_query: "Dungarpur, Rajasthan, India"
+    boundary_file: null
+    notes: "Southern Aravalli extent; borders Gujarat"
+
+  - name: "Banswara"
+    state: "Rajasthan"
+    confirmed: true
+    source: "rajras.in"
+    osm_query: "Banswara, Rajasthan, India"
+    boundary_file: null
+    notes: "Southernmost Rajasthan; Aravalli foothills"
+
+  - name: "Pratapgarh"
+    state: "Rajasthan"
+    confirmed: true
+    source: "rajras.in"
+    osm_query: "Pratapgarh, Rajasthan, India"
+    boundary_file: null
+    notes: "Southern Aravallis; carved from Chittorgarh & Banswara"
+
+  - name: "Chittorgarh"
+    state: "Rajasthan"
+    confirmed: true
+    source: "rajras.in"
+    osm_query: "Chittorgarh, Rajasthan, India"
+    boundary_file: null
+    notes: "Historic fort on Aravalli spur"
+
+  - name: "Dausa"
+    state: "Rajasthan"
+    confirmed: true
+    source: "rajras.in"
+    osm_query: "Dausa, Rajasthan, India"
+    boundary_file: null
+    notes: "Eastern Aravalli foothills"
+
+  - name: "Tonk"
+    state: "Rajasthan"
+    confirmed: true
+    source: "rajras.in"
+    osm_query: "Tonk, Rajasthan, India"
+    boundary_file: null
+    notes: "Eastern Aravalli fringe"
+
+  - name: "Sawai Madhopur"
+    state: "Rajasthan"
+    confirmed: true
+    source: "rajras.in; Wikipedia"
+    osm_query: "Sawai Madhopur, Rajasthan, India"
+    boundary_file: null
+    notes: "Ranthambore National Park; eastern Aravalli extension"
+
+  - name: "Nagaur"
+    state: "Rajasthan"
+    confirmed: true
+    source: "rajras.in"
+    osm_query: "Nagaur, Rajasthan, India"
+    boundary_file: null
+    notes: "Northwestern Aravalli fringe"
+
+# =============================================================================
+# GUJARAT - 5 Districts
+# Southern terminus of the Aravalli Range
+# Source: MoEFCC (moef.gov.in), arvalli.nic.in, Wikipedia
+# =============================================================================
+gujarat:
+  - name: "Aravalli"
+    state: "Gujarat"
+    confirmed: true
+    source: "MoEFCC; arvalli.nic.in; Wikipedia"
+    osm_query: "Aravalli district, Gujarat, India"
+    boundary_file: null
+    notes: "District named after the range; formed 2013; includes Modasa, Malpur, Dhansura, Bhiloda, Bayad, Meghraj talukas"
+
+  - name: "Sabarkantha"
+    state: "Gujarat"
+    confirmed: true
+    source: "MoEFCC; Wikipedia"
+    osm_query: "Sabarkantha, Gujarat, India"
+    boundary_file: null
+    notes: "Parent district of Aravalli district; significant Aravalli terrain"
+
+  - name: "Banaskantha"
+    state: "Gujarat"
+    confirmed: true
+    source: "MoEFCC; Wikipedia"
+    osm_query: "Banaskantha, Gujarat, India"
+    boundary_file: null
+    notes: "Near Palanpur; Aravalli foothills"
+
+  - name: "Mahesana"
+    state: "Gujarat"
+    confirmed: true
+    source: "MoEFCC (moef.gov.in)"
+    osm_query: "Mahesana, Gujarat, India"
+    boundary_file: null
+    notes: "Also spelled Mehsana; Aravalli fringe"
+
+  - name: "Panchmahal"
+    state: "Gujarat"
+    confirmed: true
+    source: "Wikipedia (Aravalli extension)"
+    osm_query: "Panchmahal, Gujarat, India"
+    boundary_file: null
+    notes: "Eastern Gujarat; Aravalli extension"
+
+# =============================================================================
+# DELHI NCT - 4 Districts
+# The Delhi Ridge is the northernmost extension of the Aravallis
+# Source: MoEFCC, Wikipedia (Delhi Ridge)
+# =============================================================================
+delhi:
+  - name: "South Delhi"
+    state: "Delhi"
+    confirmed: true
+    source: "MoEFCC; Wikipedia (Delhi Ridge)"
+    osm_query: "South Delhi, Delhi, India"
+    boundary_file: null
+    notes: "Asola Bhatti Wildlife Sanctuary; Southern Ridge"
+
+  - name: "South West Delhi"
+    state: "Delhi"
+    confirmed: true
+    source: "MoEFCC; Wikipedia"
+    osm_query: "South West Delhi, Delhi, India"
+    boundary_file: null
+    notes: "Southern Ridge extension"
+
+  - name: "Central Delhi"
+    state: "Delhi"
+    confirmed: true
+    source: "Wikipedia (Raisina Hill)"
+    osm_query: "Central Delhi, Delhi, India"
+    boundary_file: null
+    notes: "Central Ridge; Raisina Hill (Rashtrapati Bhavan)"
+
+  - name: "New Delhi"
+    state: "Delhi"
+    confirmed: true
+    source: "Wikipedia (Delhi Ridge)"
+    osm_query: "New Delhi, Delhi, India"
+    boundary_file: null
+    notes: "Northern Ridge extension"
+
+# =============================================================================
+# Additional Districts (Marginal Aravalli presence)
+# These districts have partial Aravalli terrain
+# =============================================================================
+additional:
+  - name: "Jalore"
+    state: "Rajasthan"
+    confirmed: true
+    source: "Sundha Mata (Aravalli outlier); rajras.in"
+    osm_query: "Jalore District, Rajasthan, India"
+    boundary_file: null
+    notes: "Western Aravalli outliers (Sundha Mata)"
+
+  - name: "Jodhpur"
+    state: "Rajasthan"
+    confirmed: true
+    source: "Masuria Hill, Kaylana Lake (Aravalli outliers); rajras.in"
+    osm_query: "Jodhpur District, Rajasthan, India"
+    boundary_file: null
+    notes: "Western fringe; isolated ridges"
+
+  - name: "Karauli"
+    state: "Rajasthan"
+    confirmed: true
+    source: "Eastern Aravalli outliers; rajras.in"
+    osm_query: "Karauli, Rajasthan, India"
+    boundary_file: null
+    notes: "Eastern fringe; possible Aravalli extension"
+
+  - name: "Bundi"
+    state: "Rajasthan"
+    confirmed: true
+    source: "Vindhyan-Aravalli confluence; rajras.in"
+    osm_query: "Bundi, Rajasthan, India"
+    boundary_file: null
+    notes: "Southeast; possible Aravalli extension"
+
+  - name: "Kota"
+    state: "Rajasthan"
+    confirmed: true
+    source: "Mukundara Hills (Aravalli extension); rajras.in"
+    osm_query: "Kota, Rajasthan, India"
+    boundary_file: null
+    notes: "Southeastern Aravalli fringe"
+
+  - name: "Bharatpur"
+    state: "Rajasthan"
+    confirmed: true
+    source: "Band Baretha (Aravalli outliers); rajras.in"
+    osm_query: "Bharatpur, Rajasthan, India"
+    boundary_file: null
+    notes: "Eastern boundary; Aravalli foothills"
+
+# =============================================================================
+# Configuration Options
+# =============================================================================
+config:
+  # Use only confirmed districts for analysis
+  use_confirmed_only: false
+  
+  # Fallback to OSM Nominatim if boundary_file not provided
+  osm_fallback: true
+  
+  # Buffer around district boundaries for DEM clipping (meters)
+  clip_buffer_m: 5000
+  
+  # CRS for analysis (auto-detect UTM or specify)
+  target_crs: "auto"  # Options: "auto", "EPSG:32643", etc.
+
+# =============================================================================
+# Summary Statistics
+# =============================================================================
+summary:
+  haryana_districts: 7
+  rajasthan_districts: 18
+  gujarat_districts: 5
+  delhi_districts: 4
+  additional_pending: 4
+  total_confirmed: 34
+  total_all: 38

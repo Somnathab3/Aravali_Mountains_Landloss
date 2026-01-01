@@ -1,0 +1,262 @@
+[![Aravalli Range in India: Mountains, Peaks, and Map - Rivers Insight](https://tse2.mm.bing.net/th/id/OIP.KhgE91abJqp9xkrOCLwHvgHaJQ?pid=Api)](https://riversinsight.com/aravalli-range/?utm_source=chatgpt.com)
+
+## 1) What you are comparing (old vs 2025 definition)
+
+**Previously used / “claimed” (FSI status report referenced in the case, 2010):**
+Aravallis defined operationally using **(i) slope > 3°**, **(ii) foothill buffer = 100 m**, **(iii) inter-hill distance (valley width) = 500 m**, and **(iv) area enclosed by the above-defined hills**. 
+
+**2025 Supreme Court–accepted operational definition (order dated 20 Nov 2025):**
+
+* **Aravalli Hills:** landforms in “Aravalli districts” with **≥ 100 m elevation from local relief**, where **local relief is determined by the lowest contour line encircling the landform**; the landform inside that contour (plus supporting slopes/associated landforms) is included. 
+* **Aravalli Range:** **two or more such hills** within **500 m proximity** measured between the boundaries of those “lowest contour” hill footprints; the intervening landforms are also included via a geometric construction. 
+
+**Important “current status” note (Dec 2025):** the Supreme Court later **kept the Nov 20 directions in abeyance** and constituted a high-powered committee for reassessment/clarification, so treat the 2025 definition as *paused* pending finality. ([The Economic Times][1])
+
+---
+
+## 2) Practical data approach (OSM + DEM)
+
+OSM does **not** contain an authoritative legal polygon for “Aravalli Hills/Ranges.” What you can do (and plot) is:
+
+1. Use **OSM** to define the **Area of Interest (AOI)** (districts / bounding polygon) and for basemaps/context.
+2. Use an open **DEM** (e.g., SRTM) to derive **slope**, **local relief**, **hill footprints**, and **500 m proximity-based range clustering**.
+3. Produce two layers:
+
+   * **OLD (FSI-like)**: slope>3° + 100 m foothill buffer + valley-width bridging up to 500 m
+   * **NEW (2025-like)**: local-relief≥100 m + hill footprints + 500 m proximity clustering (range)
+
+---
+
+## 3) End-to-end Python template (ready to run)
+
+> This produces: `old_aravalli.geojson`, `new_aravalli.geojson`, and an overlay plot.
+
+```python
+# pip install osmnx geopandas shapely rasterio rioxarray numpy scipy scikit-image matplotlib contextily elevation pyproj
+
+import os
+import numpy as np
+import geopandas as gpd
+import osmnx as ox
+import rasterio
+import rioxarray as rxr
+from shapely.ops import unary_union
+from scipy.ndimage import minimum_filter
+from rasterio.features import shapes
+import contextily as ctx
+import matplotlib.pyplot as plt
+from pyproj import CRS
+
+# ----------------------------
+# 1) Define AOI using OSM
+# ----------------------------
+# Edit these to your target districts/areas (smaller AOI first; whole Aravalli is large)
+PLACE_NAMES = [
+    "Gurugram, Haryana, India",
+    "Faridabad, Haryana, India",
+    "Nuh, Haryana, India",
+]
+
+gdfs = [ox.geocode_to_gdf(p) for p in PLACE_NAMES]
+aoi = gpd.GeoDataFrame(geometry=[unary_union([g.geometry.iloc[0] for g in gdfs])], crs="EPSG:4326")
+
+# Choose a meter-based CRS for buffering/distance (UTM zone estimated from AOI)
+utm_crs = CRS.estimate_utm_crs(aoi.geometry.iloc[0].centroid.y, aoi.geometry.iloc[0].centroid.x)
+aoi_utm = aoi.to_crs(utm_crs)
+
+# ----------------------------
+# 2) Download / load DEM (SRTM) clipped to AOI
+# ----------------------------
+# Uses "elevation" package (wraps SRTM download + clip). If it fails on Windows (GDAL issues),
+# replace this block with your own DEM GeoTIFF path.
+import elevation
+
+dem_path = "dem_srtm.tif"
+minx, miny, maxx, maxy = aoi.total_bounds  # lon/lat bounds in EPSG:4326
+
+# Download + clip DEM to AOI bounding box (in lon/lat)
+elevation.clip(bounds=(minx, miny, maxx, maxy), output=dem_path, product="SRTM1")
+
+# Load DEM as xarray and reproject to UTM for meter-based calculations
+dem = rxr.open_rasterio(dem_path, masked=True).squeeze()
+dem_utm = dem.rio.reproject(utm_crs)
+
+# Pixel size (meters)
+transform = dem_utm.rio.transform()
+px = abs(transform.a)  # pixel width in meters
+py = abs(transform.e)  # pixel height in meters
+
+# Convert to numpy
+Z = dem_utm.values.astype("float32")
+Z[np.isnan(Z)] = np.nan
+
+# ----------------------------
+# 3) OLD layer (FSI-like): slope > 3° + 100m buffer + bridge valleys up to 500m
+# ----------------------------
+# Slope (degrees) via gradients
+dz_dy, dz_dx = np.gradient(Z, py, px)
+slope_rad = np.arctan(np.sqrt(dz_dx**2 + dz_dy**2))
+slope_deg = np.degrees(slope_rad)
+
+old_mask = (slope_deg > 3.0) & np.isfinite(Z)
+
+def polygonize_mask(mask, transform, crs):
+    """Raster mask -> GeoDataFrame polygons"""
+    geoms = []
+    for geom, val in shapes(mask.astype(np.uint8), mask=mask, transform=transform):
+        if val == 1:
+            geoms.append(geom)
+    if not geoms:
+        return gpd.GeoDataFrame(geometry=[], crs=crs)
+    return gpd.GeoDataFrame(geometry=gpd.GeoSeries.from_geojson(str(geoms)).geometry, crs=crs)
+
+# polygonize in raster CRS
+old_polys = polygonize_mask(old_mask, dem_utm.rio.transform(), utm_crs)
+
+# dissolve + clean
+old_union = old_polys.buffer(0).unary_union
+
+# (ii) foothill buffer = 100m
+old_buf = gpd.GeoSeries([old_union], crs=utm_crs).buffer(100).iloc[0]
+
+# (iii) valley width = 500m  -> morphological closing (merge gaps <= 500m)
+# A standard approximation: buffer 250m, dissolve, then buffer back -250m
+old_closed = gpd.GeoSeries([old_buf], crs=utm_crs).buffer(250).unary_union
+old_closed = gpd.GeoSeries([old_closed], crs=utm_crs).buffer(-250).iloc[0]
+
+old_gdf = gpd.GeoDataFrame(geometry=[old_closed], crs=utm_crs)
+
+# ----------------------------
+# 4) NEW layer (2025-like): local relief >= 100m + range proximity <= 500m
+# ----------------------------
+# Approximate "local relief" using a neighborhood minimum filter.
+# Tune RELIEF_RADIUS_M: larger radius ~ broader "encircling contour" behavior.
+RELIEF_RADIUS_M = 2000  # try 1000–5000 depending on AOI scale
+win = int(max(3, (RELIEF_RADIUS_M / px)))
+if win % 2 == 0:
+    win += 1
+
+Z_filled = np.where(np.isfinite(Z), Z, np.nanmin(Z[np.isfinite(Z)]))
+local_min = minimum_filter(Z_filled, size=win)
+relief = Z_filled - local_min
+
+new_mask = (relief >= 100.0) & np.isfinite(Z)
+
+new_polys = polygonize_mask(new_mask, dem_utm.rio.transform(), utm_crs)
+new_union = new_polys.buffer(0).unary_union
+
+# Approximate "Range" clustering for hills within 500m:
+new_clustered = gpd.GeoSeries([new_union], crs=utm_crs).buffer(250).unary_union
+new_clustered = gpd.GeoSeries([new_clustered], crs=utm_crs).buffer(-250).iloc[0]
+
+new_gdf = gpd.GeoDataFrame(geometry=[new_clustered], crs=utm_crs)
+
+# ----------------------------
+# 5) Clip both to AOI boundary + export
+# ----------------------------
+old_clip = gpd.overlay(old_gdf, aoi_utm, how="intersection")
+new_clip = gpd.overlay(new_gdf, aoi_utm, how="intersection")
+
+old_clip.to_crs("EPSG:4326").to_file("old_aravalli.geojson", driver="GeoJSON")
+new_clip.to_crs("EPSG:4326").to_file("new_aravalli.geojson", driver="GeoJSON")
+
+# ----------------------------
+# 6) Quick stats + plot
+# ----------------------------
+def area_km2(gdf):
+    return float(gdf.area.sum() / 1e6)
+
+print("OLD area (km^2):", area_km2(old_clip))
+print("NEW area (km^2):", area_km2(new_clip))
+
+fig, ax = plt.subplots(1, 1, figsize=(10, 10))
+aoi_utm.boundary.plot(ax=ax, linewidth=1)
+old_clip.plot(ax=ax, alpha=0.35)
+new_clip.plot(ax=ax, alpha=0.35)
+
+# Basemap
+ctx.add_basemap(ax, crs=utm_crs)
+ax.set_axis_off()
+ax.set_title("Aravalli: OLD (FSI-like) vs NEW (2025-like, relief>=100m) within AOI")
+plt.show()
+```
+
+### What to tune (you will need this)
+
+* `PLACE_NAMES`: pick your districts/region (start small).
+* `RELIEF_RADIUS_M`: controls how “local relief” behaves; larger values tend to reduce false positives in rugged terrain but can merge features.
+
+---
+
+## 4) Elevation + distance-based outputs (profiles and hill spacing)
+
+### A) Elevation profile along a line (distance vs elevation)
+
+```python
+from shapely.geometry import LineString, Point
+
+def sample_profile(dem_xr, p1_xy, p2_xy, step_m=100):
+    line = LineString([p1_xy, p2_xy])
+    n = int(line.length // step_m) + 1
+    dists = np.linspace(0, line.length, n)
+    pts = [line.interpolate(d) for d in dists]
+
+    # sample DEM
+    xs = [p.x for p in pts]
+    ys = [p.y for p in pts]
+    vals = dem_xr.sel(x=xs, y=ys, method="nearest").values
+    return dists, vals
+
+# Example endpoints in UTM meters (pick points inside your AOI_UTM)
+p1 = (aoi_utm.geometry.iloc[0].centroid.x - 5000, aoi_utm.geometry.iloc[0].centroid.y)
+p2 = (aoi_utm.geometry.iloc[0].centroid.x + 5000, aoi_utm.geometry.iloc[0].centroid.y)
+
+d, z = sample_profile(dem_utm, p1, p2, step_m=100)
+
+plt.figure(figsize=(10,4))
+plt.plot(d/1000, z)
+plt.xlabel("Distance (km)")
+plt.ylabel("Elevation (m)")
+plt.title("Elevation profile")
+plt.grid(True)
+plt.show()
+```
+
+### B) Distances between hill/range polygons
+
+Once you have hill polygons (e.g., `new_polys`), you can compute nearest-neighbor distances:
+
+```python
+from shapely.strtree import STRtree
+
+hills = new_polys.copy()
+hills["geom"] = hills.geometry
+tree = STRtree(hills["geom"].tolist())
+
+def nearest_dist(g):
+    # query candidates; compute min distance excluding itself
+    cands = tree.query(g)
+    dmin = np.inf
+    for c in cands:
+        if c.equals(g):
+            continue
+        dmin = min(dmin, g.distance(c))
+    return dmin if np.isfinite(dmin) else None
+
+hills["nearest_hill_m"] = hills["geom"].apply(nearest_dist)
+```
+
+---
+
+## 5) Method limitations (so your plots are defensible)
+
+* The **FSI 2010** and **2025 committee** definitions refer to **Survey of India toposheets / contours**; the code above uses SRTM-derived approximations and standard spatial “closing” for the 500 m rule. 
+* For a litigation-grade boundary, you would need the **official mapped/geotagged output** being undertaken/required in the proceedings. 
+
+---
+
+* [The Economic Times](https://m.economictimes.com/news/india/aravalli-hills-case-sc-puts-its-decision-regarding-100-metre-definition-of-ranges-in-abeyance/articleshow/126225402.cms?utm_source=chatgpt.com)
+* [timesofindia.indiatimes.com](https://timesofindia.indiatimes.com/city/jaipur/thousands-embark-on-4-km-march-to-protect-ranges/articleshow/126219318.cms?utm_source=chatgpt.com)
+* [timesofindia.indiatimes.com](https://timesofindia.indiatimes.com/city/jaipur/union-mins-aravalli-mining-claims-contradict-govt-plans/articleshow/126165790.cms?utm_source=chatgpt.com)
+
+[1]: https://m.economictimes.com/news/india/aravalli-hills-case-sc-puts-its-decision-regarding-100-metre-definition-of-ranges-in-abeyance/articleshow/126225402.cms?utm_source=chatgpt.com "Aravalli Hills case: SC stays decision regarding '100-metre definition' that opened doors to mining"
