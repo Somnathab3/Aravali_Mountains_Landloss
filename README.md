@@ -568,29 +568,21 @@ outputs/
 
 ## 8. Results Gallery & Interpretation
 
-### 8.1 Aggregate Comparison (All 34 Districts)
-
-### 8.1 Aggregate Comparison (All Districts)
+### 8.1 Aggregate Comparison (All 42 Districts)
 
 The map below shows the combined delineation across all Aravalli districts in Haryana, Rajasthan, Gujarat, and Delhi NCT. 
 
-**Note**: Analysis now includes **Jalore, Jodhpur, Bundi, Kota, Karauli, and Bharatpur** (added in latest update).
+**Note**: Analysis now includes **42 districts** across all states, including recently added Jalore, Jodhpur, Bundi, Kota, Karauli, Bharatpur, Salumber, and Beawar.
 
 ![All-district comparison](outputs/aggregated_maps/comparison_loss_map.png)
 
 **Legend**:
-- **Blue (FSI-like)**: Broad definition based on >3° slope and buffering.
-- **Orange (SC 2025)**: Strict definition requiring ≥100m local relief.
-- **Insets**: Zoomed view of Delhi NCR to show intricate urban interface.
+- **Red (De-protected Area)**: Areas that lose "Aravalli" status under the NEW definition.
+- **Green (Retained Area)**: Areas that retain protection under both OLD and NEW definitions.
 
-#### 8.1.1 Alternate Visualizations
+#### 8.1.1 Alternate Visualization
 
-**A. Loss Map (Red vs Green)**
-Highlights the sheer scale of deprotection. **Red** areas lose "Aravalli" status under the new definition; only **Green** areas retain it.
-
-![Loss Map](outputs/aggregated_maps/comparison_loss_map.png)
-
-**B. Side-by-Side Comparison**
+**Side-by-Side Comparison**
 Clear distinction between the massive extent of the OLD definition vs the sparse clusters of the NEW one.
 
 ![Side by Side](outputs/aggregated_maps/comparison_side_by_side.png)
@@ -601,7 +593,7 @@ All areas computed in projected UTM CRS (meters), converted to km². Percentages
 
 | Metric | Value |
 |--------|-------|
-| **Total Districts Analyzed** | **35+** (Includes new districts) |
+| **Total Districts Analyzed** | **42** (All confirmed Aravalli districts) |
 | **OLD Definition Total Area** | *See outputs/all_districts_summary.csv* |
 | **NEW Definition Total Area** | *See outputs/all_districts_summary.csv* |
 | **Absolute Change** | **>81,000 km²** loss |
@@ -615,7 +607,7 @@ All areas computed in projected UTM CRS (meters), converted to km². Percentages
 
 ### 8.2 District-by-District Analysis
 
-**NOTE**: The section below contains a scientific card gallery for all 34 districts. To regenerate this section after re-running the analysis pipeline, use:
+**NOTE**: The section below contains a scientific card gallery for all 42 districts. To regenerate this section after re-running the analysis pipeline, use:
 
 ```bash
 python scripts/generate_district_cards.py
