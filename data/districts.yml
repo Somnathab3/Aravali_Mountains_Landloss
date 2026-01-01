@@ -379,6 +379,22 @@ additional:
     boundary_file: null
     notes: "Eastern boundary; Aravalli foothills"
 
+  - name: "Salumber"
+    state: "Rajasthan"
+    confirmed: true
+    source: "Carved from Udaipur (2023)"
+    osm_query: "Salumber, Rajasthan, India"
+    boundary_file: null
+    notes: "Recently formed district from Udaipur"
+
+  - name: "Beawar"
+    state: "Rajasthan"
+    confirmed: true
+    source: "Carved from Ajmer (2023)"
+    osm_query: "Beawar, Rajasthan, India"
+    boundary_file: null
+    notes: "Recently formed district from Ajmer"
+
 # =============================================================================
 # Configuration Options
 # =============================================================================

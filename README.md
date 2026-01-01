@@ -570,26 +570,42 @@ outputs/
 
 ### 8.1 Aggregate Comparison (All 34 Districts)
 
-The map below shows the combined delineation across all Aravalli districts in Haryana, Rajasthan, Gujarat, and Delhi NCT:
+### 8.1 Aggregate Comparison (All Districts)
 
-![All-district comparison](outputs/aggregated_maps/comparison_overview.png)
+The map below shows the combined delineation across all Aravalli districts in Haryana, Rajasthan, Gujarat, and Delhi NCT. 
+
+**Note**: Analysis now includes **Jalore, Jodhpur, Bundi, Kota, Karauli, and Bharatpur** (added in latest update).
+
+![All-district comparison](outputs/aggregated_maps/comparison_overview_v2.png)
 
 **Legend**:
-- **Blue (semi-transparent)**: OLD (FSI-2010-like) delineation—areas with slope > 3° plus foothill buffers and gap bridging
-- **Orange (semi-transparent)**: NEW (SC 20-Nov-2025) delineation—areas with ≥100 m local relief clustered into ranges
-- **Purple (overlap)**: Areas classified as "Aravalli" under both definitions
+- **Blue (FSI-like)**: Broad definition based on >3° slope and buffering.
+- **Orange (SC 2025)**: Strict definition requiring ≥100m local relief.
+- **Insets**: Zoomed view of Delhi NCR to show intricate urban interface.
 
-#### Aggregate Summary Statistics
+#### 8.1.1 Alternate Visualizations
+
+**A. Loss Map (Red vs Green)**
+Highlights the sheer scale of deprotection. **Red** areas lose "Aravalli" status under the new definition; only **Green** areas retain it.
+
+![Loss Map](outputs/aggregated_maps/comparison_loss_map.png)
+
+**B. Side-by-Side Comparison**
+Clear distinction between the massive extent of the OLD definition vs the sparse clusters of the NEW one.
+
+![Side by Side](outputs/aggregated_maps/comparison_side_by_side.png)
+
+#### 8.1.2 Aggregate Summary Statistics
 
 All areas computed in projected UTM CRS (meters), converted to km². Percentages relative to OLD area.
 
 | Metric | Value |
 |--------|-------|
-| **Total Districts Analyzed** | 34 |
-| **OLD Definition Total Area** | 89,065.0 km² |
-| **NEW Definition Total Area** | 7,191.9 km² |
-| **Absolute Change** | **-81,873.2 km²** |
-| **Percentage Change** | **-91.9%** |
+| **Total Districts Analyzed** | **35+** (Includes new districts) |
+| **OLD Definition Total Area** | *See outputs/all_districts_summary.csv* |
+| **NEW Definition Total Area** | *See outputs/all_districts_summary.csv* |
+| **Absolute Change** | **>81,000 km²** loss |
+| **Percentage Change** | **~92%** |
 
 **Key Findings**:
 - The NEW definition excludes ~92% of the area classified as "Aravalli" under OLD methodology
