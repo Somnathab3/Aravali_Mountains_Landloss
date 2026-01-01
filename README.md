@@ -5,6 +5,18 @@
 
 ---
 
+## 📢 Share This Project
+
+> I built a small open-source repo to visualise the on-ground map impact of the Supreme Court's 2025 Aravalli delineation approach versus the earlier FSI-2010-style baseline.
+>
+> I wanted to see the "before vs after" on a map—surprisingly, most coverage stayed textual—so I used my (overpriced) laptop, some geospatial tooling, and DEM-based terrain analysis to generate comparable overlays.
+>
+> Using Copernicus/SRTM elevation data, I derived slope/relief features and applied the distance logic (including the ~500 m proximity/buffer rule) to approximate the newer definition. One striking observation: relative to the FSI-2010 baseline, the protected/covered area drops by roughly 91–92% in my runs.
+>
+> **Repo (code + methodology + outputs):** [github.com/Somnathab3/Aravali_Mountains_Landloss](https://github.com/Somnathab3/Aravali_Mountains_Landloss)
+
+---
+
 ## Table of Contents
 
 1. [Problem Statement](#1-problem-statement)
