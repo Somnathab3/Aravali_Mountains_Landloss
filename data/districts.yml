@@ -383,7 +383,7 @@ additional:
     state: "Rajasthan"
     confirmed: true
     source: "Carved from Udaipur (2023)"
-    osm_query: "Salumber, Rajasthan, India"
+    osm_query: "Salumbar, Rajasthan"
     boundary_file: null
     notes: "Recently formed district from Udaipur"
 
@@ -391,7 +391,7 @@ additional:
     state: "Rajasthan"
     confirmed: true
     source: "Carved from Ajmer (2023)"
-    osm_query: "Beawar, Rajasthan, India"
+    osm_query: "Beawar Tehsil, Rajasthan"
     boundary_file: null
     notes: "Recently formed district from Ajmer"
 
