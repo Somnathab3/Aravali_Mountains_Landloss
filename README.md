@@ -653,6 +653,20 @@ Click on any map thumbnail to view full-resolution comparison.
       </a>
     </td>
     <td width="33%" valign="top">
+      <b>Jalore</b> (Rajasthan)<br/>
+      <small>District area: 10676.7 km²</small><br/>
+      <br/>
+      <b>OLD:</b> 5920.8 km² (55.5%)<br/>
+      <b>NEW:</b> 171.8 km² (1.6%)<br/>
+      <b>Δ:</b> -5748.9 km² (-97.1%)<br/>
+      <br/>
+      <a href="outputs/districts/Jalore/maps/comparison_overview.png">
+        <img src="outputs/districts/Jalore/maps/comparison_overview.png" width="300" alt="Jalore comparison"/>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top">
       <b>Jaipur</b> (Rajasthan)<br/>
       <small>District area: 9832.0 km²</small><br/>
       <br/>
@@ -664,8 +678,18 @@ Click on any map thumbnail to view full-resolution comparison.
         <img src="outputs/districts/Jaipur/maps/comparison_overview.png" width="300" alt="Jaipur comparison"/>
       </a>
     </td>
-  </tr>
-  <tr>
+    <td width="33%" valign="top">
+      <b>Jodhpur</b> (Rajasthan)<br/>
+      <small>District area: 13134.4 km²</small><br/>
+      <br/>
+      <b>OLD:</b> 4512.4 km² (34.4%)<br/>
+      <b>NEW:</b> 4.6 km² (0.0%)<br/>
+      <b>Δ:</b> -4507.7 km² (-99.9%)<br/>
+      <br/>
+      <a href="outputs/districts/Jodhpur/maps/comparison_overview.png">
+        <img src="outputs/districts/Jodhpur/maps/comparison_overview.png" width="300" alt="Jodhpur comparison"/>
+      </a>
+    </td>
     <td width="33%" valign="top">
       <b>Chittorgarh</b> (Rajasthan)<br/>
       <small>District area: 7806.4 km²</small><br/>
@@ -678,6 +702,8 @@ Click on any map thumbnail to view full-resolution comparison.
         <img src="outputs/districts/Chittorgarh/maps/comparison_overview.png" width="300" alt="Chittorgarh comparison"/>
       </a>
     </td>
+  </tr>
+  <tr>
     <td width="33%" valign="top">
       <b>Bhilwara</b> (Rajasthan)<br/>
       <small>District area: 10056.1 km²</small><br/>
@@ -702,8 +728,6 @@ Click on any map thumbnail to view full-resolution comparison.
         <img src="outputs/districts/Banswara/maps/comparison_overview.png" width="300" alt="Banswara comparison"/>
       </a>
     </td>
-  </tr>
-  <tr>
     <td width="33%" valign="top">
       <b>Banaskantha</b> (Gujarat)<br/>
       <small>District area: 6133.4 km²</small><br/>
@@ -716,6 +740,8 @@ Click on any map thumbnail to view full-resolution comparison.
         <img src="outputs/districts/Banaskantha/maps/comparison_overview.png" width="300" alt="Banaskantha comparison"/>
       </a>
     </td>
+  </tr>
+  <tr>
     <td width="33%" valign="top">
       <b>Jhunjhunu</b> (Rajasthan)<br/>
       <small>District area: 5920.9 km²</small><br/>
@@ -740,8 +766,6 @@ Click on any map thumbnail to view full-resolution comparison.
         <img src="outputs/districts/Dungarpur/maps/comparison_overview.png" width="300" alt="Dungarpur comparison"/>
       </a>
     </td>
-  </tr>
-  <tr>
     <td width="33%" valign="top">
       <b>Rajsamand</b> (Rajasthan)<br/>
       <small>District area: 4631.7 km²</small><br/>
@@ -754,6 +778,8 @@ Click on any map thumbnail to view full-resolution comparison.
         <img src="outputs/districts/Rajsamand/maps/comparison_overview.png" width="300" alt="Rajsamand comparison"/>
       </a>
     </td>
+  </tr>
+  <tr>
     <td width="33%" valign="top">
       <b>Pratapgarh</b> (Rajasthan)<br/>
       <small>District area: 4430.2 km²</small><br/>
@@ -764,6 +790,18 @@ Click on any map thumbnail to view full-resolution comparison.
       <br/>
       <a href="outputs/districts/Pratapgarh/maps/comparison_overview.png">
         <img src="outputs/districts/Pratapgarh/maps/comparison_overview.png" width="300" alt="Pratapgarh comparison"/>
+      </a>
+    </td>
+    <td width="33%" valign="top">
+      <b>Karauli</b> (Rajasthan)<br/>
+      <small>District area: 5017.7 km²</small><br/>
+      <br/>
+      <b>OLD:</b> 3500.9 km² (69.8%)<br/>
+      <b>NEW:</b> 314.6 km² (6.3%)<br/>
+      <b>Δ:</b> -3186.3 km² (-91.0%)<br/>
+      <br/>
+      <a href="outputs/districts/Karauli/maps/comparison_overview.png">
+        <img src="outputs/districts/Karauli/maps/comparison_overview.png" width="300" alt="Karauli comparison"/>
       </a>
     </td>
     <td width="33%" valign="top">
@@ -793,6 +831,18 @@ Click on any map thumbnail to view full-resolution comparison.
       </a>
     </td>
     <td width="33%" valign="top">
+      <b>Bundi</b> (Rajasthan)<br/>
+      <small>District area: 5773.0 km²</small><br/>
+      <br/>
+      <b>OLD:</b> 3004.7 km² (52.0%)<br/>
+      <b>NEW:</b> 266.4 km² (4.6%)<br/>
+      <b>Δ:</b> -2738.4 km² (-91.1%)<br/>
+      <br/>
+      <a href="outputs/districts/Bundi/maps/comparison_overview.png">
+        <img src="outputs/districts/Bundi/maps/comparison_overview.png" width="300" alt="Bundi comparison"/>
+      </a>
+    </td>
+    <td width="33%" valign="top">
       <b>Pali</b> (Rajasthan)<br/>
       <small>District area: 9910.9 km²</small><br/>
       <br/>
@@ -804,6 +854,8 @@ Click on any map thumbnail to view full-resolution comparison.
         <img src="outputs/districts/Pali/maps/comparison_overview.png" width="300" alt="Pali comparison"/>
       </a>
     </td>
+  </tr>
+  <tr>
     <td width="33%" valign="top">
       <b>Sabarkantha</b> (Gujarat)<br/>
       <small>District area: 4144.2 km²</small><br/>
@@ -816,8 +868,6 @@ Click on any map thumbnail to view full-resolution comparison.
         <img src="outputs/districts/Sabarkantha/maps/comparison_overview.png" width="300" alt="Sabarkantha comparison"/>
       </a>
     </td>
-  </tr>
-  <tr>
     <td width="33%" valign="top">
       <b>Panchmahal</b> (Gujarat)<br/>
       <small>District area: 3282.7 km²</small><br/>
@@ -840,6 +890,32 @@ Click on any map thumbnail to view full-resolution comparison.
       <br/>
       <a href="outputs/districts/Mahesana/maps/comparison_overview.png">
         <img src="outputs/districts/Mahesana/maps/comparison_overview.png" width="300" alt="Mahesana comparison"/>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top">
+      <b>Beawar</b> (Rajasthan)<br/>
+      <small>District area: 4755.1 km²</small><br/>
+      <br/>
+      <b>OLD:</b> 2665.8 km² (56.1%)<br/>
+      <b>NEW:</b> 289.6 km² (6.1%)<br/>
+      <b>Δ:</b> -2376.2 km² (-89.1%)<br/>
+      <br/>
+      <a href="outputs/districts/Beawar/maps/comparison_overview.png">
+        <img src="outputs/districts/Beawar/maps/comparison_overview.png" width="300" alt="Beawar comparison"/>
+      </a>
+    </td>
+    <td width="33%" valign="top">
+      <b>Salumber</b> (Rajasthan)<br/>
+      <small>District area: 2628.9 km²</small><br/>
+      <br/>
+      <b>OLD:</b> 2540.4 km² (96.6%)<br/>
+      <b>NEW:</b> 250.4 km² (9.5%)<br/>
+      <b>Δ:</b> -2290.0 km² (-90.1%)<br/>
+      <br/>
+      <a href="outputs/districts/Salumber/maps/comparison_overview.png">
+        <img src="outputs/districts/Salumber/maps/comparison_overview.png" width="300" alt="Salumber comparison"/>
       </a>
     </td>
     <td width="33%" valign="top">
@@ -919,6 +995,20 @@ Click on any map thumbnail to view full-resolution comparison.
       </a>
     </td>
     <td width="33%" valign="top">
+      <b>Kota</b> (Rajasthan)<br/>
+      <small>District area: 5083.6 km²</small><br/>
+      <br/>
+      <b>OLD:</b> 1751.9 km² (34.5%)<br/>
+      <b>NEW:</b> 75.2 km² (1.5%)<br/>
+      <b>Δ:</b> -1676.7 km² (-95.7%)<br/>
+      <br/>
+      <a href="outputs/districts/Kota/maps/comparison_overview.png">
+        <img src="outputs/districts/Kota/maps/comparison_overview.png" width="300" alt="Kota comparison"/>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top">
       <b>Tonk</b> (Rajasthan)<br/>
       <small>District area: 7193.6 km²</small><br/>
       <br/>
@@ -930,8 +1020,18 @@ Click on any map thumbnail to view full-resolution comparison.
         <img src="outputs/districts/Tonk/maps/comparison_overview.png" width="300" alt="Tonk comparison"/>
       </a>
     </td>
-  </tr>
-  <tr>
+    <td width="33%" valign="top">
+      <b>Bharatpur</b> (Rajasthan)<br/>
+      <small>District area: 2889.0 km²</small><br/>
+      <br/>
+      <b>OLD:</b> 1134.1 km² (39.3%)<br/>
+      <b>NEW:</b> 48.6 km² (1.7%)<br/>
+      <b>Δ:</b> -1085.5 km² (-95.7%)<br/>
+      <br/>
+      <a href="outputs/districts/Bharatpur/maps/comparison_overview.png">
+        <img src="outputs/districts/Bharatpur/maps/comparison_overview.png" width="300" alt="Bharatpur comparison"/>
+      </a>
+    </td>
     <td width="33%" valign="top">
       <b>Mahendragarh</b> (Haryana)<br/>
       <small>District area: 1936.1 km²</small><br/>
@@ -944,6 +1044,8 @@ Click on any map thumbnail to view full-resolution comparison.
         <img src="outputs/districts/Mahendragarh/maps/comparison_overview.png" width="300" alt="Mahendragarh comparison"/>
       </a>
     </td>
+  </tr>
+  <tr>
     <td width="33%" valign="top">
       <b>Charkhi Dadri</b> (Haryana)<br/>
       <small>District area: 1373.4 km²</small><br/>
@@ -968,8 +1070,6 @@ Click on any map thumbnail to view full-resolution comparison.
         <img src="outputs/districts/Gurugram/maps/comparison_overview.png" width="300" alt="Gurugram comparison"/>
       </a>
     </td>
-  </tr>
-  <tr>
     <td width="33%" valign="top">
       <b>Rewari</b> (Haryana)<br/>
       <small>District area: 1564.0 km²</small><br/>
@@ -982,6 +1082,8 @@ Click on any map thumbnail to view full-resolution comparison.
         <img src="outputs/districts/Rewari/maps/comparison_overview.png" width="300" alt="Rewari comparison"/>
       </a>
     </td>
+  </tr>
+  <tr>
     <td width="33%" valign="top">
       <b>Nuh</b> (Haryana)<br/>
       <small>District area: 1505.4 km²</small><br/>
@@ -1006,8 +1108,6 @@ Click on any map thumbnail to view full-resolution comparison.
         <img src="outputs/districts/Faridabad/maps/comparison_overview.png" width="300" alt="Faridabad comparison"/>
       </a>
     </td>
-  </tr>
-  <tr>
     <td width="33%" valign="top">
       <b>South Delhi</b> (Delhi)<br/>
       <small>District area: 150.4 km²</small><br/>
@@ -1020,6 +1120,8 @@ Click on any map thumbnail to view full-resolution comparison.
         <img src="outputs/districts/South Delhi/maps/comparison_overview.png" width="300" alt="South Delhi comparison"/>
       </a>
     </td>
+  </tr>
+  <tr>
     <td width="33%" valign="top">
       <b>South West Delhi</b> (Delhi)<br/>
       <small>District area: 283.8 km²</small><br/>
@@ -1044,8 +1146,6 @@ Click on any map thumbnail to view full-resolution comparison.
         <img src="outputs/districts/New Delhi/maps/comparison_overview.png" width="300" alt="New Delhi comparison"/>
       </a>
     </td>
-  </tr>
-  <tr>
     <td width="33%" valign="top">
       <b>Central Delhi</b> (Delhi)<br/>
       <small>District area: 89.2 km²</small><br/>
@@ -1063,10 +1163,14 @@ Click on any map thumbnail to view full-resolution comparison.
 
 #### District Analysis Legend
 
-- **District area**: Total administrative area (km²)
+- **District area**: Total administrative area
+
 - **OLD**: FSI-2010-like delineation (slope > 3° + buffers)
+
 - **NEW**: SC 20-Nov-2025 definition (≥100 m local relief)
+
 - **Δ**: Change from OLD to NEW (negative = area lost)
+
 - **Percentages**: Share of total district area classified as Aravalli
 
 ### 8.3 Why OLD and NEW Differ
