@@ -576,7 +576,7 @@ The map below shows the combined delineation across all Aravalli districts in Ha
 
 **Note**: Analysis now includes **Jalore, Jodhpur, Bundi, Kota, Karauli, and Bharatpur** (added in latest update).
 
-![All-district comparison](outputs/aggregated_maps/comparison_overview_v2.png)
+![All-district comparison](outputs/aggregated_maps/comparison_loss_map.png)
 
 **Legend**:
 - **Blue (FSI-like)**: Broad definition based on >3° slope and buffering.
