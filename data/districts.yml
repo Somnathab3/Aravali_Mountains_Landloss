@@ -391,9 +391,9 @@ additional:
     state: "Rajasthan"
     confirmed: true
     source: "Carved from Ajmer (2023)"
-    osm_query: "Beawar Tehsil, Rajasthan"
-    boundary_file: null
-    notes: "Recently formed district from Ajmer"
+    osm_query: null
+    boundary_file: "data/boundaries/Beawar_merged.geojson"
+    notes: "Recently formed district from Ajmer (Merged 7 Tehsils)"
 
 # =============================================================================
 # Configuration Options
